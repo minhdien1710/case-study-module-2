@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Types</title>
+</head>
+<body>
+<a href="/type/create/">Add new Type</a>
+<h1>Type list</h1>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="type : ${types}">
+        <tr>
+            <td><a th:href="@{/type/view/__${type.id}__}" th:text="${type.name}"></a></td>
+            <td><a th:href="@{/type/update/__${type.id}__ }">Edit</a></td>
+            <td><a th:href="@{/type/delete/__${type.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
